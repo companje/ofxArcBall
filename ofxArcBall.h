@@ -13,18 +13,15 @@
 
 class ofxArcBall {
 public:
-	
-	ofxArcBall();
-	~ofxArcBall();
-	
-	void mousePressed(ofMouseEventArgs &e);
-	void mouseDragged(ofMouseEventArgs &e);
-
-	ofVec3f mouseToSphere(float x, float y);
-	
+    void startDrag();
+    void stopDrag();
 	void begin();
 	void end();
-	
-	ofVec3f vDown,vTo;
+    ofQuaternion getOrientation();
+    
+protected:
+    void mouseDragged(ofMouseEventArgs &e);
+    ofVec3f getMouseOnSphere();
+    ofVec3f vDown,vTo;
 	ofQuaternion qDown,qTo;
 };
