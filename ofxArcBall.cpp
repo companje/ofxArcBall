@@ -33,6 +33,7 @@ ofVec3f ofxArcBall::getMouseOnSphere() {
     ofVec3f v;
 	v.x = ofMap(ofGetMouseX(),0,ofGetWidth(),-.5,.5);
 	v.y = ofMap(ofGetMouseY(),0,ofGetHeight(),-.5,.5);
+    v.rotate(rotationZ, ofVec3f(0,0,1)); //this is to correct for a rotated screen orientation
     if (v.squareLength()>1.0f) v.normalize();
     else v.z = sqrt(1.0f - v.squareLength());
     return v;
